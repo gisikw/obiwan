@@ -46,26 +46,26 @@
         This is loosely inspired by <a href='http://trulia.github.io/hologram/'>Hologram</a>, but is focused around generating a single JSON/JSONP file from code documentation, and providing a decoupled presentation layer. This particular front-end implementation allows easy previewing of elements from within an iframe sandbox. Here's some sample input:
       </p>
       <pre>
-        obiwanData({
-          deps: {
-            stylesheets: [
-              'app.css'
-            ]
-          },
-          categories: {
-            'Basics': {
-              'Colors': 'colors',
-            },
-          },
-          docs: [
-            {
-              title: 'All the basic colors',
-              category: 'Colors',
-              copy: '&lt;p&gt;These are the basic colors. There are many like them, but these ones are ours.&lt;/p&gt;',
-              code: '&lt;p class="jedi-color-red"&gt;Some Text&lt;/p&gt;'
-            },
-          ]
-        });
+obiwanData({
+  deps: {
+    stylesheets: [
+      'app.css'
+    ]
+  },
+  categories: {
+    'Basics': {
+      'Colors': 'colors',
+    },
+  },
+  docs: [
+    {
+      title: 'All the basic colors',
+      category: 'Colors',
+      copy: '&lt;p&gt;These are the basic colors. There are many like them, but these ones are ours.&lt;/p&gt;',
+      code: '&lt;p class="jedi-color-red"&gt;Some Text&lt;/p&gt;'
+    },
+  ]
+});
       </pre>
       <p>
         And finally, here's some sample output (generated from a more complex JSONP file):
