@@ -1,0 +1,36 @@
+obiwanData({
+  deps: {
+    stylesheets: [
+      'app.css'
+    ]
+  },
+  categories: {
+    'Basics': {
+      'Colors': 'colors',
+      'Typography': 'type',
+      'Grid': 'grid'
+    },
+    'Buttons': {
+      'Action Buttons': 'action',
+      'Share Buttons': 'share',
+      'Special Cases': 'special'
+    }
+  },
+  docs: [
+    {
+      title: 'Responsive Example',
+      copy:  'Here we demo media queries for the glory of all the things',
+      code: '<div class="jedi-responsive">Different sizes &mdash; different colors</div>'
+    },
+    {
+      title: 'All the basic colors',
+      copy: '<p>These are the basic colors. There are many like them, but these ones are ours.</p>',
+      code: '<p class="jedi-color-red">Some Text</p>'
+    },
+    {
+      title: 'A treatise on typography',
+      copy: '<p>Fonts are hard to grok, mmkay?</p>',
+      code: '<p class="jedi-font-huge">Huge text</a>'
+    }
+  ]
+});

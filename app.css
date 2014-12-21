@@ -1,0 +1,43 @@
+/**
+* The jedi-color-red selector is perhaps the most amazing selector to ever
+* exist on planet earth. Erm, in a galaxy far far away.
+*
+* @namespace Colors
+* @name Jedi Red
+* @example Be a red-sabered Jedi.
+* <p class="jedi-color-red">Maybe I'm a Sith?</p>
+*/
+.jedi-color-red {
+  color: red;
+}
+
+/**
+* Sometimes, you need your Jedis to be very big.
+*
+* @namespace Typography
+* @name Jedi Font Huge
+* @example
+* <p class="jedi-font-huge">This Jedi needs to diet</p>
+*/
+.jedi-font-huge {
+  font-size: 32px;
+}
+
+.jedi-responsive {
+  background: SaddleBrown;
+  color: #fff;
+  padding: 10px 15px;
+  margin: 10px 0;
+}
+
+@media (min-width: 480px) {
+  .jedi-responsive {
+    background: DarkSlateBlue;
+  }
+}
+
+@media (min-width: 728px) {
+  .jedi-responsive {
+    background: LightCoral;
+  }
+}

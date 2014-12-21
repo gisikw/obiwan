@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>ObiWan Style Guide</title>
+    <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="obiwan.js"></script>
+    <link href='obiwan.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body class='container' style='padding-top: 20px' ng-app='obiwan' ng-controller='obiwanCtrl'>
+    <div ng-show='preview.active' class='obi-preview-modal panel panel-default' style='width: {{preview.width}}px; margin-left: -{{preview.width / 2}}px'>
+      <div class='obi-preview-controls panel-heading'>
+        <div class='btn-group'>
+          <button
+            ng-repeat='size in [320, 640, 970]'
+            ng-click='preview.width = size'
+            class='btn btn-default'>
+            {{size}}px
+          </button>
+        </div>
+        <div class='btn-group'>
+          <button
+            ng-repeat='color in ["dark", "light", "transp"]'
+            ng-click='preview.bg = color'
+            class='btn btn-default obi-{{color}}'>
+            &nbsp;
+          </button>
+        </div>
+        <div class='btn-group'>
+          <button ng-click='preview.active = false'
+                  class='btn btn-primary'>
+            Close
+          </button>
+        </div>
+      </div>
+      <div class='obi-frame-wrapper panel-body'>
+        <iframe id='obi-frame' class='obi-{{preview.bg}}'></iframe>
+      </div>
+    </div>
+    <section class='col-md-9 col-sm-9'>
+      <h1>Obiwan Style Guide Generator</h1>
+      <p>
+        This is a proof-of-concept demo for an automatic style guide generator. This is a static single-page webapp, running on <a href='http://getbootstrap.com/'>Twitter Bootstrap</a> and <a href='https://angularjs.org/'>AngularJS</a>. This is just a prototype, but feel free to take a look at the code at <a href='https://github.com/gisikw/obiwan'>http://github.com/gisikw/obiwan</a>.
+      </p>
+      <p>
+        This is loosely inspired by <a href='http://trulia.github.io/hologram/'>Hologram</a>, but is focused around generating a single JSON/JSONP file from code documentation, and providing a decoupled presentation layer. This particular front-end implementation allows easy previewing of elements from within an iframe sandbox. Here's some sample input:
+      </p>
+      <pre>
+        obiwanData({
+          deps: {
+            stylesheets: [
+              'app.css'
+            ]
+          },
+          categories: {
+            'Basics': {
+              'Colors': 'colors',
+            },
+          },
+          docs: [
+            {
+              title: 'All the basic colors',
+              category: 'Colors',
+              copy: '&lt;p&gt;These are the basic colors. There are many like them, but these ones are ours.&lt;/p&gt;',
+              code: '&lt;p class="jedi-color-red"&gt;Some Text&lt;/p&gt;'
+            },
+          ]
+        });
+      </pre>
+      <p>
+        And finally, here's some sample output (generated from a more complex JSONP file):
+      </p>
+      <div ng-repeat='doc in docs'>
+        <h2 ng-bind='doc.title'></h2>
+        <div ng-bind-html='doc.copy'></div>
+        <div ng-if='doc.code' class='panel panel-default'>
+          <div class='panel-heading'>Example</div>
+          <div class='panel-body'>
+            <pre ng-bind='doc.code'></pre>
+            <div ng-bind-html='doc.code'></div>
+            <button ng-click='openPreview(doc)' class='btn btn-primary'>Preview</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <nav class='col-md-3 col-sm-3 hidden-xs'>
+      <div class='panel panel-default'>
+        <div class='panel-heading' ng-bind='currentCategory'></div>
+        <ul class='nav nav-pills nav-stacked panel-body'>
+          <li ng-repeat='(name, link) in categories[currentCategory]'>
+            <a href='#{{link}}'>{{name}}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>
