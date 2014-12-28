@@ -1,0 +1,19 @@
+/**
+* @namespace Examples
+* @name My Cool Class
+* The following is some abstract comment
+* with a multi-line comment
+*/
+.my-cool-class {
+  background: red;
+}
+
+/**
+* @namespace Examples
+* @name My Other Class
+* Here is a second comment
+* @coolness 9000
+*/
+.my-other-class {
+  background: blue;
+}
