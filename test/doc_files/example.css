@@ -17,3 +17,13 @@
 .my-other-class {
   background: blue;
 }
+
+/**
+* @namespace Examples
+* @name My Class that Has Examples
+* @example Using the Thing
+* <div class="my-class-with-examples"></div>
+*/
+.my-class-with-examples {
+  background: red;
+}
