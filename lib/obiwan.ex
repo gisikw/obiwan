@@ -1,3 +1,19 @@
+# Parse files containing comments formatted like:
+# /**
+# * @namespace JavaScript
+# * @name myCoolFunction
+# *
+# * This is the description for myCollFunction
+# *
+# * @example
+# * polluteGlobalNamspace()
+# * beSuperBadass()
+# *
+# * @example Titled Example
+# * beEvenCooler()
+# */
+#
+# Run with:
 # Obiwan.parse('test/doc_files')
 
 defmodule Obiwan do
