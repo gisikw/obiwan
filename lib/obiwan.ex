@@ -3,7 +3,7 @@
 # * @namespace JavaScript
 # * @name myCoolFunction
 # *
-# * This is the description for myCollFunction
+# * This is the description for myCoolFunction
 # *
 # * @example
 # * polluteGlobalNamspace()
